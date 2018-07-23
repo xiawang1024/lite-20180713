@@ -1,0 +1,13 @@
+{
+  "pages":[
+    "pages/comment/comment",
+    "pages/home/home",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarTitleText": "新闻广播",
+    "navigationBarTextStyle":"white"
+  }
+}

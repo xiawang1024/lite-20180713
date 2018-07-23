@@ -1,0 +1,81 @@
+<!--pages/comment/comment.wxml-->
+<view class='comment'>
+  <view class="anchor-wrap {{anchorIsFixed?'anchor-fixed':''}}" >
+    <view class='anchor-info'>
+      <image class='anchor-avatar' mode='aspectFit' src="http://www.hndt.com/podcast/976/1131/res/EEghUGNE.jpg?1511506999379"></image>
+      <text class='anchor-name'>主持人：暂无信息</text>
+    </view>
+    <view class='anchor-zan'>
+      <image class='icon-zan' src='../../imgs/icon-zan-white.png' mode='aspectFit'></image><text class='zan-count'>599000</text>
+    </view>
+  </view>
+  <view class='comment-wrap'>
+    <view class='comment-item' wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13]}}">
+      <image class='item-avatar' mode='aspectFit' src="http://www.hndt.com/podcast/976/1131/res/EEghUGNE.jpg?1511506999379"></image>
+      <view class='item-wrap'>
+        <view class='item-name'>三页</view>
+        <view class='item-content'>这是一段评论这是一段，评论这是一段评论。这是一段评论这是一段，评论这是一段评论。</view>
+        <view class='item-tools'>
+          <view class='item-time'>05月16日 08:54</view>
+          <view class='item-other'>
+            <view class='item-icon-zan-wrap'>
+              <image class='item-icon-zan' src='../../imgs/icon-zan.png' mode='aspectFit'></image>
+              <text class='item-zan-cout'>59000</text>
+            </view>
+            <view class='item-icon-msg-wrap'>
+              <image class='item-icon-msg' src='../../imgs/icon-msg.png' mode='aspectFit'></image>
+              <text class='item-msg-cout'>59000</text>
+            </view>
+          </view>
+        </view>
+        <view class='reply-wrap'>
+          <text class='reply-name'>回复：</text>
+          <text class='reply-content'>这是一段回复内容哦！这是一段回复内容哦！这是一段回复内容哦！这是一段回复内容哦！</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='player-wrap'>
+    <view class='playing-status'>
+      <text class='playing-current'>{{currentTime}}</text>
+      <slider class='playing-progressbar' block-size='12' backgroundColor="#000" activeColor="#aaa" step="0.01" bindchange='seekAudio' bindchanging='audioPause' value='{{percent}}'></slider>
+      <text class='playing-duration'>{{duration}}</text>
+    </view>
+    <view class='playing-ctrl'>
+      <view class='play-pause-wrap' bindtap='switchPlayStatus'>
+        <image wx:if="{{!isPlay}}" class='icon-play' src='../../imgs/icon-play.png'></image>
+        <image wx:else class='icon-play' src='../../imgs/icon-pause.png'></image>
+      </view>
+      <view class='program-ctrl'>
+        <image class='icon-program' src='../../imgs/icon-program.png' bindtap='openProgram'></image>
+      </view>
+      <view class='reply-ipt'>
+        <input class='ipt' placeholder='评论' confirm-type="send"></input>
+      </view>
+      <!-- <view class='reply-voice'>
+        <image class='icon-voice' src='../../imgs/icon-emoji.png'></image>
+      </view> -->
+      <view class='reply-img'>
+        <image class='icon-img' src='../../imgs/icon-img.png' bindtap='chooseImage'></image>
+      </view>
+    </view>
+  </view>
+  <view class='program-wrap' hidden='{{isShowProgram}}'>
+    <view class='icon-close-wrap'>
+      <image src='../../imgs/icon-close.png' class='icon-close' bindtap='closeProgram'></image>
+    </view>
+    <view class='program-title'>CCTV朝闻天下</view>
+    <scroll-view class='program-scroll' scroll-y >
+      <view class='program-item' wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13]}}">
+        <text class='program-date'>2018-07-22</text>
+        <text class='program-timerange'>06:00-07:00</text>
+        <image class='program-isplaying'></image>
+        <view class='program-name-wrap'>
+          <text class='program-name'>旅游之声</text>
+          <text wx:if="{{false}}" class='program-live'>直播</text>
+          <text wx:else class='program-playback'>回听</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

@@ -1,0 +1,31 @@
+<!--pages/home/home.wxml-->
+<view class="list-wrap">
+    <block wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13]}}" wx:for-item="item">
+
+      <view class='item-wrap'  data-id="item" bindtap="tapHandler">
+      
+        <view class='info-wrap'>
+          <image class='info-img' mode="{{'aspectFill'}}" src="{{'http://www.hndt.com/podcast/1111/res/xtmZ0Bee.png?1508751589195'}}"></image>
+          <view class='info-text-wrap'>
+            <text class='info-text-status'>直播</text>
+            <text class='info-text-time'>10:15-11:00</text>
+          </view>
+        </view>
+
+        <view class='anchor-wrap'>
+          <view class='anchor-name-wrap'>
+            <text class='anchor-dot'></text>
+            <text class='anchor-name'>主持人{{item}}</text>
+          </view>
+
+          <view class='live-name'>大医生来了</view>
+        </view>
+
+      </view>
+    
+    
+    </block>
+    
+  
+</view>
+

@@ -1,0 +1,252 @@
+/* pages/comment/comment.wxss */
+.comment{
+  display: flex;
+  flex-direction: column;
+  background: #222222;
+  color:#ffffff;
+}
+.anchor-fixed{
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+}
+.anchor-wrap{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 200rpx;
+  padding: 50rpx 20rpx;
+  border-bottom: 1rpx solid #000000;
+  box-sizing: border-box;
+  background: #222222;
+}
+.anchor-info{
+  display: flex;
+  align-items: center;
+  font-size: 0;
+}
+.anchor-avatar{
+  width:100rpx;
+  height: 100rpx; 
+  border-radius: 50%;
+}
+.anchor-name{
+  margin-left: 16rpx;
+  font-size: 28rpx;
+}
+.anchor-zan{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 180rpx; 
+  height: 60rpx;
+  padding:0 16rpx;
+  border-radius: 60rpx;
+  background:#000000;
+  box-sizing: border-box;
+}
+.icon-zan{
+  height: 30rpx;
+}
+.zan-count{
+  font-size: 28rpx;
+}
+
+.comment-wrap{
+  padding-bottom: 180rpx;
+}
+.comment-item{
+  display: flex;
+  width: 100%;
+  padding: 30rpx 40rpx 30rpx 20rpx;
+  border-bottom: 1rpx solid #000000; 
+  box-sizing: border-box;
+}
+.item-avatar{
+  flex: 0 0 60rpx;
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+}
+.item-wrap{
+  flex:1;
+  margin-left: 16rpx;
+}
+.item-name{
+  font-size: 28rpx;
+}
+.item-content{
+  margin-top:12rpx;
+  font-size: 26rpx;
+  line-height: 1.6;
+}
+.item-tools{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24rpx;
+  color:#999999;
+  margin-top:30rpx;
+}
+.item-other{
+  display: flex;
+  align-items: center;
+}
+.item-icon-msg-wrap{
+  margin-left: 20rpx;
+}
+.item-icon-zan,.item-icon-msg{
+  vertical-align: middle;
+  width: 28rpx;
+  height: 28rpx;
+}
+.item-zan-cout,.item-msg-cout{
+  vertical-align: middle;
+  margin-left: 8rpx;
+}
+.reply-wrap{
+  margin-top: 20rpx;
+  width: 100%;
+  padding:25rpx 20rpx;
+  font-size: 26rpx;
+  background:#000000;
+  box-sizing: border-box;
+}
+.reply-name{
+  color:#0081dc;
+}
+.reply-content{
+  line-height: 1.6;
+}
+.player-wrap{
+  position: fixed;
+  left:0;
+  bottom:0;
+  width: 100%;
+  height: 180rpx;
+  background: #222222;
+}
+.playing-status{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  padding:10rpx 20rpx 10rpx 20rpx;
+  box-sizing: border-box;
+}
+.playing-current,.playing-duration{
+  width: 100rpx;
+  text-align: center;
+  font-size: 24rpx;
+}
+.playing-progressbar{
+  flex:1;
+  margin-left:20rpx;
+  margin-right:20rpx;
+}
+
+.playing-ctrl{
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  width: 100%;
+  padding:0 20rpx 20rpx 20rpx;
+  box-sizing: border-box;
+}
+.play-pause-wrap,.program-ctrl,.reply-ipt,.reply-voice,.reply-img{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20rpx;
+}
+.reply-ipt{
+  flex:1;
+}
+.icon-play{
+  width: 60rpx;
+  height: 60rpx;
+}
+.icon-program{
+  width: 47rpx;
+  height: 40rpx;
+}
+.icon-voice,.icon-img{
+  width: 60rpx;
+  height: 60rpx;
+}
+.ipt{
+  flex:1;
+  height:55rpx;
+  line-height:55rpx;
+  border-radius:55rpx;
+  border:1px solid #aaa;
+  padding-left: 16rpx;
+  font-size: 26rpx;
+}
+.program-wrap{
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left:0;
+  bottom:0;
+  width: 100%;
+  height: 700rpx;
+  color:#333333;
+  background: #ffffff;
+  padding:20rpx;
+  box-sizing: border-box;
+}
+.program-title{
+  margin-bottom: 20rpx;
+  font-size: 30rpx;
+  color:#000000;
+  flex:0 0 60rpx;
+}
+.program-scroll{
+  flex: 1;
+  height: 600rpx;
+}
+.program-item{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  padding:20rpx 0;
+  border-bottom:1rpx solid #ddd;
+}
+.program-isplaying{
+  height: 30rpx;
+  width: 50rpx;
+  background: orange;
+}
+.program-date{
+  width: 180rpx;
+  flex:0 0 180rpx;
+}
+.program-timerange{
+  width: 180rpx;
+  flex:0 0 180rpx;
+}
+.program-name-wrap{
+  flex:1;
+  text-align: right;
+}
+.program-live,.program-playback{
+  margin-left: 12rpx;
+  border:1rpx solid red;
+  border-radius: 4rpx;
+  padding:4rpx 8rpx;
+  font-size: 24rpx;
+  color:red;
+}
+.icon-close-wrap{
+  position: absolute;
+  top :10rpx;
+  right:30rpx;
+}
+.icon-close{
+  width: 60rpx;
+  height: 60rpx;
+}
