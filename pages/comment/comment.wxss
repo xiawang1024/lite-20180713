@@ -81,6 +81,9 @@
   font-size: 26rpx;
   line-height: 1.6;
 }
+.content-img{
+  height: 250rpx; 
+}
 .item-tools{
   width: 100%;
   display: flex;

@@ -55,6 +55,13 @@ Page({
       isShowProgram: true
     })
   },
+  previewImage(url = "http://www.hndt.com/podcast/976/1131/res/EEghUGNE.jpg?1511506999379") {
+    
+    wx.previewImage({
+      current: "http://www.hndt.com/podcast/976/1131/res/EEghUGNE.jpg?1511506999379", // 当前显示图片的http链接
+      urls: ["http://www.hndt.com/podcast/976/1131/res/EEghUGNE.jpg?1511506999379"] // 需要预览的图片http链接列表
+    })
+  },
   chooseImage() {
     wx.chooseImage({
       count: 1, // 默认9
