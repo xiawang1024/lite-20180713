@@ -1,23 +1,7 @@
 // pages/comment/comment.js
-const innerAudioContext = wx.createInnerAudioContext()
-innerAudioContext.autoplay = true
 
-innerAudioContext.onPlay(() => {
-  console.log('开始播放')
-})
-innerAudioContext.onError((res) => {
-  console.log(res.errMsg)
-  console.log(res.errCode)
-})
-const recorderManager = wx.getRecorderManager()
-const options = {
-  duration: 10000,
-  sampleRate: 44100,
-  numberOfChannels: 1,
-  encodeBitRate: 192000,
-  format: 'aac',
-  frameSize: 50
-}
+const backgroundAudioManager = wx.getBackgroundAudioManager()
+
 const util = require('../../utils/util.js')
 
 Page({
@@ -73,58 +57,25 @@ Page({
       }
     })
   },
-  seekAudio(event) {    
-    let { value } = event.detail
-    let seekTime = innerAudioContext.duration * value / 100;    
-    innerAudioContext.seek(seekTime)
-    innerAudioContext.play()
-    this.setData({
-      isPlay: true
-    })
-  },
-  switchPlayStatus() {
-    if(innerAudioContext.paused) {
-      innerAudioContext.play()
+  listenPlayer(src) {
+    backgroundAudioManager.title = src;
+    backgroundAudioManager.src = src;
+    backgroundAudioManager.protocol = 'hls';
+    backgroundAudioManager.onPlay(() => {
       this.setData({
-        isPlay:true
+        isPlay: true
       })
-    }else {
-      innerAudioContext.pause()
+    })
+    backgroundAudioManager.onPause(() => {
       this.setData({
         isPlay: false
       })
-    }
-  },
-  audioPause() {
-    innerAudioContext.pause()
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    innerAudioContext.src = 'http://stream.hndt.com/vod/_definst_/mp4:radio/20180723/xinwen_20180723_0600_0630.m4a/playlist.m3u8';
-    innerAudioContext.play()
-    innerAudioContext.onTimeUpdate(() => {
-      let { duration, currentTime } = innerAudioContext
+    })
+    backgroundAudioManager.onTimeUpdate(() => {
+      let { duration, currentTime } = backgroundAudioManager
       let percent = (currentTime / duration * 100).toFixed(2);      
-      console.log(percent)
       duration = util.formatPlayTime(duration)
-      currentTime = util.formatPlayTime(currentTime)      
+      currentTime = util.formatPlayTime(currentTime)
       this.setData({
         currentTime,
         duration,
@@ -132,19 +83,64 @@ Page({
       })
     })
   },
+  seekAudio(event) {    
+    let { value } = event.detail
+    let seekTime = backgroundAudioManager.duration * value / 100;    
+    backgroundAudioManager.seek(seekTime)
+    setTimeout(() => {
+      backgroundAudioManager.play()
+    },20)
+  },
+  switchPlayStatus() {
+    if(backgroundAudioManager.paused) {
+      backgroundAudioManager.play() 
+    }else {
+      backgroundAudioManager.pause()
+    }
+  },
+  audioPause() {
+    backgroundAudioManager.pause()
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    console.log('load')
+    this.listenPlayer('http://owaup0bqu.bkt.clouddn.com/wangfei.mp3')
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady() {
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+       
+  },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+    wx.showToast({
+      title: 'hide',
+    })
+    // backgroundAudioManager.stop()
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+    wx.showToast({
+      title: 'unload',
+    })
   },
 
   /**

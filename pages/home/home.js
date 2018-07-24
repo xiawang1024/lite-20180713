@@ -14,7 +14,7 @@ Page({
       icon: 'success',
       duration: 2000
     })   
-    let url = `/pages/index/index?id=${id}`
+    let url = `/pages/comment/comment?id=${id}`
     console.log(e.target.dataset)
     wx.navigateTo({
       url: url ,
